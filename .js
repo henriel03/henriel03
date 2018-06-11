@@ -16,10 +16,10 @@ function setup() {
   a=x;
   y=250;
   b=y;
-  xInimigo = ellipse; 
- yInimigo = ellipse;
-  dx = 8
- dy = 10
+  //xInimigo = ellipse; 
+ //yInimigo = ellipse;
+  //dx = 8
+ //dy = 10
 }
 
 function draw() {
@@ -32,19 +32,15 @@ function draw() {
  }
  else {
     colisao = false;  
- }
+} //colisão
+  
  
- if ( corAmarelo ) {
-   fill(255);
- }
- else {
-   fill(255,0,0);
- }
+ //ellipse(xInimigo, yInimigo, 1*raio, 1*raio); 
+  
  
- ellipse(xInimigo, yInimigo, 1*raio, 1*raio); 
  
  fill(230,230,0);
- ellipse(a,b,raioJ,raioJ); 
+ //ellipse(a,b,raioJ,raioJ); 
   
    textSize(25);
   fill(250,400,10);
@@ -54,12 +50,15 @@ function draw() {
     disparo = true; 
     a=x;
     b=y;
+    
   }
   if (disparo) {
-    a=a+9;
+    a=a+19;
     if (a> width) {
        disparo = false; 
     }
+      ellipse(a,b,1*raio,1*raio); //isso é o desenho do disparo
+
   }
   
   if (keyIsDown(LEFT_ARROW))
@@ -86,11 +85,19 @@ if(y<25){
   if(x>485){
     x=485;
 }
-  ellipse(460, yq, 5*raioJ, 5*raioJ);
+  
+   if ( corAmarelo ) {
+   fill(255,255,0);
+ }
+ else {
+   fill(255,255,255);
+  }
+  ellipse(460, yq, 5*raioJ, 5*raioJ); //ellipse oponente
   yq=yq+2;
   if(yq>height){
    yq=random(-600,-50); 
   }
-  ellipse(x,y,30,50);
-ellipse(a,b,1*raio,1*raio);
+     fill(255,255,0);
+
+  ellipse(x,y,30,50); //ellipse do jogador
 }
