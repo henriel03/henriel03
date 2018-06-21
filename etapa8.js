@@ -74,7 +74,7 @@ function draw() {
      
  }
   
-   if((ao<=82 && bo>60 && bo<190) || (ao<=82 && bo>330 && bo<460)){
+   if((ao<=90 && bo>60 && bo<190) || (ao<=90 && bo>330 && bo<460)){
    ao-=100
     if ( colisaoo == false) {  
       
