@@ -67,9 +67,9 @@ function draw() {
        colisao = true; 
      }
  }
-  if(vidas==0){
-    alert("Game Over")
-  }
+  //if(vidas==0){
+   // alert("Game Over")
+ // }
   if(pontos>250){
     alert("Parabéns você venceu seu oponente")
   }
@@ -245,4 +245,10 @@ if(y<25){
   rect(60,330,15,130); // barreira de proteção do jogador
   rect(200,yb1,15,70); // barreira pequena que movimenta
   rect(200,yb2,15,70); // barreira pequena que movimenta
+
+if(vidas<2){
+  background(0);
+  textSize(50);
+  text("GAME OVER",110,250)
+}
 }
