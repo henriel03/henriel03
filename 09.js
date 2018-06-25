@@ -35,6 +35,7 @@ var tempo=0
 var tempodisparo=60
 var vdo=19
 var x1 = false;
+var pontosacumulados=0;
 function setup() {
   frameRate(30);
   tamArea = 500;
@@ -58,28 +59,31 @@ function setup() {
     vcorB[i] = random(0,255);
   }//bolinhas no cenario
 }
+function preload(){
+	imgjogador = loadImage("img/jetfighter.png");
+}
 
 function draw() {
   if(x1==false && keyIsDown(13)){
   		x1=true
   }
-  if(pontos>120 && vidas>1){
-vidas=vidas+1;
+  if(pontosacumulados==80){
+	vidas++;
+	pontosacumulados=0;
   }
   
   if(x1==true){
   tempo++
   background(0);
-   if ( dist(a,b,460,yq) < raio+raioJ ) { //colisaão com o adversario
+   if ( dist(a,b,485,yq) < raio+raioJ ) { //colisaão com o adversario
      if ( colisao == false) { 
-       pontos+=10      
+       pontos+=10
+       pontosacumulados+=10      
        colisao = true; 
      }
  }
   
-  if(pontos>250){
-    alert("Parabéns você venceu seu oponente")
-  }
+  
   if ( dist(ao,bo,x,y) < raio+raioJ ) { //colisaão com o jogador e perda de vida
   
       vidas--   
@@ -243,10 +247,10 @@ if(y<25){
    yq=random(-600,-50); 
   }
      fill(255,255,0);
-
-  ellipse(x,y,30,50); //ellipse do jogador
+  
+  //ellipse(x,y+17,30,50); //ellipse do jogador
  
-   
+   image(imgjogador,x-15,y-30,40,70)
   rect(60,60,15,90); // barreira de proteção do jogador
   rect(60,315,15,90); // barreira de proteção do jogador
   rect(200,yb1,15,70); // barreira pequena que movimenta
@@ -262,8 +266,9 @@ if(vidas<0){
 }
   else{
      background(255,255,0);
-  	textSize(16);
-  	text("Pressione CONTROL para atirar e ENTER para iniciar o jogo",30,250)
+  	textSize(25);
+  	text("Pressione CONTROL para atirar",40,250)
+  	text( "\nENTER para iniciar o jogo",55,270)
   }
   if(nivel>5){
   background(0);
